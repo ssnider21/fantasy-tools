@@ -146,7 +146,7 @@ export default function TrueRankinsTable(props) {
   }
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} css={{ maxWidth: '1400px' }}>
       <AlertDialog open={showAlert} handleClose={() => setShowAlert(false)} />
       {rankings.length > 0 && (
         <Table>
