@@ -5,9 +5,7 @@ import { Typography } from '@material-ui/core';
 
 const Footer = () => {
   return (
-    <footer
-      css={{ backgroundImage: `url(${WaveImg})`, backgroundSize: 'cover', marginTop: '-100px' }}
-    >
+    <footer>
       <div
         css={{
           minHeight: 300,
@@ -16,8 +14,8 @@ const Footer = () => {
           alignItems: 'flex-end'
         }}
       >
-        <Typography css={{ margin: '0.5rem', color: '#fff' }}>
-          © Jake Partusch. All rights reserved.
+        <Typography css={{ margin: '0.5rem', color: '#bbb' }}>
+          Adapted from fantasytools.dev by Jake Partusch.
         </Typography>
       </div>
     </footer>

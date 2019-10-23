@@ -42,6 +42,15 @@ const getHslCellColor = (wins, losses) => {
   }
 };
 
+const getHslLuckColor = luck => {
+  luck = parseFloat(luck);
+  if (luck < 0) {
+    return `hsl(0, 65%,${Math.max((luck + 0.8) * 100, 25)}%)`;
+  } else {
+    return `hsl(100, 65%,${Math.max((0.5 - luck) * 100, 13)}%)`;
+  }
+};
+
 const displayWeeklyRecords = (team, totalTeams) => {
   return team.wins.map((wins, index) => {
     const losses = totalTeams - 1 - wins;
@@ -55,6 +64,19 @@ const displayWeeklyRecords = (team, totalTeams) => {
       </TableCell>
     );
   });
+};
+
+const displayLuckRating = (actualWins, totalWins) => {
+  const luck = (actualWins / (totalWins * (1 / 9)) - 1).toFixed(4);
+  return (
+    <StyledTableCell
+      align="center"
+      className="luck-rating-cell"
+      css={{ padding: '10px', backgroundColor: getHslLuckColor(luck) }}
+    >
+      <Typography variant="body1">{luck}</Typography>
+    </StyledTableCell>
+  );
 };
 
 const displayWeeklyHeaders = rankings => {
@@ -146,6 +168,18 @@ export default function TrueRankinsTable(props) {
               >
                 ESPN Record
               </StyledTableCell>
+              <StyledTableCell
+                align="center"
+                css={{ minWidth: isLargeScreen ? '100px' : undefined }}
+              >
+                Expected Record
+              </StyledTableCell>
+              <StyledTableCell
+                align="center"
+                css={{ minWidth: isLargeScreen ? '100px' : undefined }}
+              >
+                Luck Rating
+              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -168,6 +202,13 @@ export default function TrueRankinsTable(props) {
                     {row.actualRecord.wins} - {row.actualRecord.losses}
                   </Typography>
                 </StyledTableCell>
+                <StyledTableCell align="center" className="expected-record-cell">
+                  <Typography variant="body1">
+                    {(row.totalWins * (1 / 9)).toFixed(2)} -{' '}
+                    {(row.totalLosses * (1 / 9)).toFixed(2)}
+                  </Typography>
+                </StyledTableCell>
+                {displayLuckRating(row.actualRecord.wins, row.totalWins)}
               </TableRow>
             ))}
           </TableBody>

@@ -22,33 +22,7 @@ const Navbar = () => {
     setAnchorEl(null);
     history.push(path);
   };
-  return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleClick}>
-          <MenuIcon />
-        </IconButton>
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          keepMounted
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={() => handleClose('/')}>Home</MenuItem>
-          <MenuItem onClick={() => handleClose('/standings')}>Standings Simulator</MenuItem>
-        </Menu>
-        <Link
-          to="/"
-          css={{ textDecoration: 'none', color: '#fff', display: 'flex', alignItems: 'center' }}
-        >
-          <Typography variant="h5" component="div">
-            Fantasy Tools
-          </Typography>
-        </Link>
-      </Toolbar>
-    </AppBar>
-  );
+  return <AppBar position="static"></AppBar>;
 };
 
 export default Navbar;

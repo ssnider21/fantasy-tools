@@ -38,7 +38,7 @@ const App = () => {
             >
               <Navbar />
               <main>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={RankingsSimulator} />
                 <Route exact path="/standings" component={RankingsSimulator} />
                 <Redirect to="/" />
               </main>

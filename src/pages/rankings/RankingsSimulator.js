@@ -22,7 +22,7 @@ const SubmitButton = styled(Button)({
 
 const Home = () => {
   const [espnUrl, setEspnUrl] = React.useState();
-  const [leagueId, setLeagueId] = React.useState();
+  const [leagueId, setLeagueId] = React.useState(1788259);
   const [seasonId, setSeasonId] = React.useState(2019);
 
   useEffect(() => {
@@ -48,7 +48,6 @@ const Home = () => {
       <header
         css={{
           minHeight: 288,
-          padding: '48px 32px',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
@@ -59,39 +58,8 @@ const Home = () => {
           <Typography variant="h1" css={{ fontWeight: 600 }}>
             Standings Simulator
           </Typography>
-          <Typography
-            css={{ padding: '20px', maxWidth: 600, fontSize: '18px', margin: 'auto' }}
-            component="p"
-            variant="subtitle1"
-          >
-            Tired of losing your matchup while scoring the second most points in your league? Do you
-            always seem to be paired against one of the top scoring teams? We'll eliminate the luck
-            of the draw by simulating every possible matchup for each week, so you can see how your
-            team truly stacks up.
-          </Typography>
         </div>
-        <img css={{ maxWidth: '300px' }} alt="Game day illustration" src={GameDayImg} />
       </header>
-      <section css={{ background: '#f8f9fa' }}>
-        <div css={{ maxWidth: 960, padding: '32px', margin: 'auto' }}>
-          <form onSubmit={onSubmit}>
-            <div css={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-              <TextField
-                css={{ backgroundColor: '#fff', flexGrow: 1 }}
-                id="outlined-required"
-                label="ESPN League Homepage URL"
-                placeholder="https://fantasy.espn.com/football/league?leagueId=1234567"
-                onChange={e => setEspnUrl(e.target.value)}
-                margin="normal"
-                variant="outlined"
-              />
-              <SubmitButton type="submit" variant="contained" color="primary">
-                Calculate
-              </SubmitButton>
-            </div>
-          </form>
-        </div>
-      </section>
       <section>
         <Table leagueId={leagueId} seasonId={seasonId} />
       </section>
