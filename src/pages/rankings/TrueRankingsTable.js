@@ -47,7 +47,7 @@ const getHslLuckColor = luck => {
   if (luck < 0) {
     return `hsl(0, 65%,${Math.max((luck + 0.8) * 100, 25)}%)`;
   } else {
-    return `hsl(100, 65%,${Math.max((0.5 - luck) * 100, 13)}%)`;
+    return `hsl(120, 65%,${Math.max((0.7 - luck) * 100, 13)}%)`;
   }
 };
 
