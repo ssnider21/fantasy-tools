@@ -113,7 +113,7 @@ export default function TrueRankinsTable(props) {
   const [rankings, setRankings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const { leagueId, seasonId = 2019 } = props;
+  const { leagueId, seasonId = 2020 } = props;
 
   useEffect(() => {
     const fetchRankings = async () => {
