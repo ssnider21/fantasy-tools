@@ -23,7 +23,7 @@ const SubmitButton = styled(Button)({
 const Home = () => {
   const [espnUrl, setEspnUrl] = React.useState();
   const [leagueId, setLeagueId] = React.useState(1788259);
-  const [seasonId, setSeasonId] = React.useState(2019);
+  const [seasonId, setSeasonId] = React.useState(2020);
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
